@@ -28,7 +28,8 @@ def least_projects():
 # List the top 10 projects that have the highest goal and list the ones that have reached their goals.
 
 def projects_highest_goal():
-    df= project.join(proceeds, project.project_id==proceeds.project_id).select(project.proj_name, proceeds.goal, proceeds.pledged)                                                                                       proceeds.pledged)
+    df= project.join(proceeds, project.project_id==proceeds.project_id).select(project.proj_name, proceeds.goal, proceeds.pledged)    
+
     projects_highest_goal=df.orderBy(col("goal").desc())   
 
 
@@ -63,7 +64,7 @@ def sucessful_category():
 # What type of projects are prevalent in each country?
 
 def prevalent_projects():
-    dataa = project.join(country, project.country_id==country.country_id, "inner").join(category,project.category_id == category.category_id,"inner").select(project.proj_name, country.country_code, category.category, category.main_category)                                                                                                       project.category_id == category.category_id).select(
+    dataa = project.join(country, project.country_id==country.country_id, "inner").join(category,project.category_id == category.category_id,"inner").select(project.proj_name, country.country_code, category.category, category.main_category)                                                                                                     
     prevalent_projects = dataa.groupby('country_code','category').count().sort(col("count").desc())
     prevalent_projects=prevalent_projects.drop_duplicates(["country_code"]).show(22)
    
@@ -83,4 +84,4 @@ def denormalize(category, country, proceeds, project):
         .join(proceeds, 'project_id', 'inner') \
         .join(category, 'category_id', 'inner')
     denormalized = joined.drop('category_id', 'country_id', 'proceeds_id').withColumnRenamed('project_id', 'ID')
-    return denormalize
+    return denormalized
