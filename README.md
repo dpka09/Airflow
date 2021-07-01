@@ -1,11 +1,11 @@
-# deepika_airflow_ks
+ # deepika_airflow_ks
 
 
 Install airflow and its dependencies
 
 export airflow home:
 
-export AIRFLOW_HOME=<filepath>
+export AIRFLOW_HOME= <filepath>
 
 
 Install postgres and its driver, export driver classpath:
