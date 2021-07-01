@@ -59,7 +59,7 @@ def denormalize():
 #creating Dag
 dag = DAG(dag_id="Fusemachines_Airflow_project",
           default_args=default_args,
-          schedule_interval="* * * * *")
+          schedule_interval="0 0 * * *")
 
 
 
