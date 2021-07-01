@@ -1,5 +1,7 @@
+
+
 import pyspark
-from Project import *
+
 
 spark = pyspark.sql.SparkSession \
     .builder \
@@ -20,5 +22,4 @@ def load_to_db(df):
                   table="Project",
                   mode=mode,
                  properties= properties)
-
 
