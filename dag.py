@@ -1,4 +1,4 @@
-from datetime import timedelta
+import airflow
 from airflow.models import DAG
 from datetime import datetime, timedelta
 from airflow.operators.python import PythonOperator
@@ -15,7 +15,7 @@ default_args ={
     'email_on_failure': True,
     'email_on_retry':False,
     'retries':3,
-    'retry_delay': timedelta(minutes=30),
+    'retry_delay':timedelta(minutes=30)
     }
 
 
