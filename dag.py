@@ -11,7 +11,7 @@ default_args ={
     'owner':'postgres',
     'start_date':airflow.utils.dates.days_ago(1),
     'depends_on_past':True,
-    'email':['sthadpka93@gmail.com'],
+    'email':['example@gmail.com'],
     'email_on_failure': True,
     'email_on_retry':False,
     'retries':3,
