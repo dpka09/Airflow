@@ -1,0 +1,25 @@
+[2021-07-02 14:40:07,631] {taskinstance.py:866} INFO - Dependencies not met for <TaskInstance: Fusemachines_Airflow_project.least_projects 2021-07-01T00:15:00+00:00 [up_for_retry]>, dependency 'Not In Retry Period' FAILED: Task is not ready for retry yet but will be retried automatically. Current date is 2021-07-02T08:55:07.631348+00:00 and task will be retried at 2021-07-02T08:59:55.821533+00:00.
+[2021-07-02 14:40:07,640] {local_task_job.py:98} INFO - Task is not able to be run
+[2021-07-02 14:45:45,416] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: Fusemachines_Airflow_project.least_projects 2021-07-01T00:15:00+00:00 [queued]>
+[2021-07-02 14:45:45,430] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: Fusemachines_Airflow_project.least_projects 2021-07-01T00:15:00+00:00 [queued]>
+[2021-07-02 14:45:45,430] {taskinstance.py:1067} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-02 14:45:45,430] {taskinstance.py:1068} INFO - Starting attempt 2 of 4
+[2021-07-02 14:45:45,430] {taskinstance.py:1069} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-02 14:45:45,503] {taskinstance.py:1087} INFO - Executing <Task(PythonOperator): least_projects> on 2021-07-01T00:15:00+00:00
+[2021-07-02 14:45:45,505] {standard_task_runner.py:52} INFO - Started process 67638 to run task
+[2021-07-02 14:45:45,509] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'Fusemachines_Airflow_project', 'least_projects', '2021-07-01T00:15:00+00:00', '--job-id', '126', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp6x_h3pnt', '--error-file', '/tmp/tmpiietb73q']
+[2021-07-02 14:45:45,509] {standard_task_runner.py:77} INFO - Job 126: Subtask least_projects
+[2021-07-02 14:45:45,596] {logging_mixin.py:104} INFO - Running <TaskInstance: Fusemachines_Airflow_project.least_projects 2021-07-01T00:15:00+00:00 [running]> on host deepika-Inspiron-5570
+[2021-07-02 14:45:45,686] {taskinstance.py:1280} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=sthadpka93@gmail.com
+AIRFLOW_CTX_DAG_OWNER=postgres
+AIRFLOW_CTX_DAG_ID=Fusemachines_Airflow_project
+AIRFLOW_CTX_TASK_ID=least_projects
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-01T00:15:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-07-01T00:15:00+00:00
+[2021-07-02 14:45:53,020] {python.py:151} INFO - Done. Returned value was: None
+[2021-07-02 14:45:53,025] {taskinstance.py:1184} INFO - Marking task as SUCCESS. dag_id=Fusemachines_Airflow_project, task_id=least_projects, execution_date=20210701T001500, start_date=20210702T090045, end_date=20210702T090053
+[2021-07-02 14:45:54,705] {taskinstance.py:1245} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-07-02 14:45:54,722] {local_task_job.py:151} INFO - Task exited with return code 0

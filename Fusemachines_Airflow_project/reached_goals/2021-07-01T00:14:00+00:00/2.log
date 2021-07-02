@@ -1,0 +1,93 @@
+[2021-07-02 14:53:42,156] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: Fusemachines_Airflow_project.reached_goals 2021-07-01T00:14:00+00:00 [queued]>
+[2021-07-02 14:53:42,170] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: Fusemachines_Airflow_project.reached_goals 2021-07-01T00:14:00+00:00 [queued]>
+[2021-07-02 14:53:42,170] {taskinstance.py:1067} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-02 14:53:42,170] {taskinstance.py:1068} INFO - Starting attempt 2 of 4
+[2021-07-02 14:53:42,170] {taskinstance.py:1069} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-02 14:53:42,891] {taskinstance.py:1087} INFO - Executing <Task(PythonOperator): reached_goals> on 2021-07-01T00:14:00+00:00
+[2021-07-02 14:53:42,898] {standard_task_runner.py:52} INFO - Started process 78075 to run task
+[2021-07-02 14:53:42,909] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'Fusemachines_Airflow_project', 'reached_goals', '2021-07-01T00:14:00+00:00', '--job-id', '156', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpse6qi8dc', '--error-file', '/tmp/tmpwft9upqq']
+[2021-07-02 14:53:42,910] {standard_task_runner.py:77} INFO - Job 156: Subtask reached_goals
+[2021-07-02 14:53:43,148] {logging_mixin.py:104} INFO - Running <TaskInstance: Fusemachines_Airflow_project.reached_goals 2021-07-01T00:14:00+00:00 [running]> on host deepika-Inspiron-5570
+[2021-07-02 14:53:43,416] {taskinstance.py:1280} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=sthadpka93@gmail.com
+AIRFLOW_CTX_DAG_OWNER=postgres
+AIRFLOW_CTX_DAG_ID=Fusemachines_Airflow_project
+AIRFLOW_CTX_TASK_ID=reached_goals
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-01T00:14:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-07-01T00:14:00+00:00
+[2021-07-02 14:53:50,361] {taskinstance.py:1481} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/deepika/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1137, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/deepika/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1311, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/deepika/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1341, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/deepika/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 150, in execute
+    return_value = self.execute_callable()
+  File "/home/deepika/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 161, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/deepika/airflow/dags/dag.py", line 35, in reached_goals
+    load_to_db(task4())
+  File "/home/deepika/airflow/dags/main.py", line 22, in load_to_db
+    df.write.jdbc(url=url,
+  File "/opt/spark/python/pyspark/sql/readwriter.py", line 1445, in jdbc
+    self.mode(mode)._jwrite.jdbc(url, table, jprop)
+  File "/home/deepika/.local/lib/python3.8/site-packages/py4j/java_gateway.py", line 1304, in __call__
+    return_value = get_return_value(
+  File "/opt/spark/python/pyspark/sql/utils.py", line 111, in deco
+    return f(*a, **kw)
+  File "/home/deepika/.local/lib/python3.8/site-packages/py4j/protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling o79.jdbc.
+: org.postgresql.util.PSQLException: ERROR: relation "project" does not exist
+  Position: 15
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2552)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2284)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:164)
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:114)
+	at org.apache.spark.sql.execution.datasources.jdbc.JDBCRDD$.resolveTable(JDBCRDD.scala:61)
+	at org.apache.spark.sql.execution.datasources.jdbc.JDBCRelation$.getSchema(JDBCRelation.scala:226)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:35)
+	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:88)
+	at org.apache.spark.sql.execution.datasources.SaveIntoDataSourceCommand.run(SaveIntoDataSourceCommand.scala:46)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:70)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:68)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.doExecute(commands.scala:90)
+	at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:180)
+	at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:218)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:215)
+	at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:176)
+	at org.apache.spark.sql.execution.QueryExecution.toRdd$lzycompute(QueryExecution.scala:132)
+	at org.apache.spark.sql.execution.QueryExecution.toRdd(QueryExecution.scala:131)
+	at org.apache.spark.sql.DataFrameWriter.$anonfun$runCommand$1(DataFrameWriter.scala:989)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:989)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:438)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:415)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:301)
+	at org.apache.spark.sql.DataFrameWriter.jdbc(DataFrameWriter.scala:817)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:748)
+
+[2021-07-02 14:53:50,367] {taskinstance.py:1524} INFO - Marking task as UP_FOR_RETRY. dag_id=Fusemachines_Airflow_project, task_id=reached_goals, execution_date=20210701T001400, start_date=20210702T090842, end_date=20210702T090850
+[2021-07-02 14:53:51,004] {local_task_job.py:151} INFO - Task exited with return code 1

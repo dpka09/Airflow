@@ -1,0 +1,23 @@
+[2021-07-02 14:33:00,876] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: Fusemachines_Airflow_project.least_projects 2021-07-01T00:12:00+00:00 [queued]>
+[2021-07-02 14:33:00,892] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: Fusemachines_Airflow_project.least_projects 2021-07-01T00:12:00+00:00 [queued]>
+[2021-07-02 14:33:00,892] {taskinstance.py:1067} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-02 14:33:00,893] {taskinstance.py:1068} INFO - Starting attempt 1 of 4
+[2021-07-02 14:33:00,893] {taskinstance.py:1069} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-02 14:33:00,975] {taskinstance.py:1087} INFO - Executing <Task(PythonOperator): least_projects> on 2021-07-01T00:12:00+00:00
+[2021-07-02 14:33:00,978] {standard_task_runner.py:52} INFO - Started process 53327 to run task
+[2021-07-02 14:33:00,982] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'Fusemachines_Airflow_project', 'least_projects', '2021-07-01T00:12:00+00:00', '--job-id', '84', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp7nratz9f', '--error-file', '/tmp/tmpqoc9p0tt']
+[2021-07-02 14:33:00,983] {standard_task_runner.py:77} INFO - Job 84: Subtask least_projects
+[2021-07-02 14:33:01,086] {logging_mixin.py:104} INFO - Running <TaskInstance: Fusemachines_Airflow_project.least_projects 2021-07-01T00:12:00+00:00 [running]> on host deepika-Inspiron-5570
+[2021-07-02 14:33:01,298] {taskinstance.py:1280} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=sthadpka93@gmail.com
+AIRFLOW_CTX_DAG_OWNER=postgres
+AIRFLOW_CTX_DAG_ID=Fusemachines_Airflow_project
+AIRFLOW_CTX_TASK_ID=least_projects
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-01T00:12:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-07-01T00:12:00+00:00
+[2021-07-02 14:33:10,389] {python.py:151} INFO - Done. Returned value was: None
+[2021-07-02 14:33:10,398] {taskinstance.py:1184} INFO - Marking task as SUCCESS. dag_id=Fusemachines_Airflow_project, task_id=least_projects, execution_date=20210701T001200, start_date=20210702T084800, end_date=20210702T084810
+[2021-07-02 14:33:10,842] {taskinstance.py:1245} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2021-07-02 14:33:10,863] {local_task_job.py:151} INFO - Task exited with return code 0

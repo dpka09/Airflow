@@ -1,0 +1,47 @@
+[2021-07-02 14:36:21,760] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: Fusemachines_Airflow_project.year_with_max_fail 2021-07-01T00:00:00+00:00 [queued]>
+[2021-07-02 14:36:21,767] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: Fusemachines_Airflow_project.year_with_max_fail 2021-07-01T00:00:00+00:00 [queued]>
+[2021-07-02 14:36:21,767] {taskinstance.py:1067} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-02 14:36:21,767] {taskinstance.py:1068} INFO - Starting attempt 1 of 4
+[2021-07-02 14:36:21,767] {taskinstance.py:1069} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-02 14:36:21,876] {taskinstance.py:1087} INFO - Executing <Task(PythonOperator): year_with_max_fail> on 2021-07-01T00:00:00+00:00
+[2021-07-02 14:36:21,878] {standard_task_runner.py:52} INFO - Started process 57762 to run task
+[2021-07-02 14:36:21,882] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'Fusemachines_Airflow_project', 'year_with_max_fail', '2021-07-01T00:00:00+00:00', '--job-id', '98', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpacph19hp', '--error-file', '/tmp/tmpw212v_pq']
+[2021-07-02 14:36:21,882] {standard_task_runner.py:77} INFO - Job 98: Subtask year_with_max_fail
+[2021-07-02 14:36:22,069] {logging_mixin.py:104} INFO - Running <TaskInstance: Fusemachines_Airflow_project.year_with_max_fail 2021-07-01T00:00:00+00:00 [running]> on host deepika-Inspiron-5570
+[2021-07-02 14:36:22,322] {taskinstance.py:1280} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=sthadpka93@gmail.com
+AIRFLOW_CTX_DAG_OWNER=postgres
+AIRFLOW_CTX_DAG_ID=Fusemachines_Airflow_project
+AIRFLOW_CTX_TASK_ID=year_with_max_fail
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-07-01T00:00:00+00:00
+[2021-07-02 14:36:25,945] {taskinstance.py:1481} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/spark/python/pyspark/sql/types.py", line 1571, in __getattr__
+    idx = self.__fields__.index(item)
+ValueError: 'write' is not in list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/deepika/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1137, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/deepika/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1311, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/deepika/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1341, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/deepika/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 150, in execute
+    return_value = self.execute_callable()
+  File "/home/deepika/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 161, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/deepika/airflow/dags/dag.py", line 52, in year_with_max_fail
+    load_to_db(task8())
+  File "/home/deepika/airflow/dags/main.py", line 22, in load_to_db
+    df.write.jdbc(url=url,
+  File "/opt/spark/python/pyspark/sql/types.py", line 1576, in __getattr__
+    raise AttributeError(item)
+AttributeError: write
+[2021-07-02 14:36:25,947] {taskinstance.py:1524} INFO - Marking task as UP_FOR_RETRY. dag_id=Fusemachines_Airflow_project, task_id=year_with_max_fail, execution_date=20210701T000000, start_date=20210702T085121, end_date=20210702T085125
+[2021-07-02 14:36:26,839] {local_task_job.py:151} INFO - Task exited with return code 1
