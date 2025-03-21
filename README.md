@@ -1,4 +1,4 @@
-# PySpark Data Analysis Project
+# Workflow orchestration and data processing using Airflow and Postgres
 
 This project leverages PySpark to perform data analysis and transformation on datasets such as category, country, proceeds, and project information. It provides answers to various business-related queries, including project success, prevalent categories, and country-specific insights.
 
