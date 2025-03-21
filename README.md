@@ -35,7 +35,7 @@ Ensure you have the following installed:
 3. Ensure the CSV files (category.csv, country.csv, proceeds.csv, project.csv) are stored at their respective paths:
 
         eg: /home/deepika/my_project_dir/my_project_env/
-
+---
 
 ### Usage
 ***Run the Python File:*** 
@@ -46,7 +46,7 @@ Ensure you have the following installed:
  - Each task is implemented as a function. Uncomment the required task at the bottom of the script to execute it.
 
 
-
+---
 ### Task Explanations
 
 ***Task 1: Successful Projects with Zero Backers***
@@ -85,17 +85,20 @@ Analyzes the data to find the year with the highest number of failed projects.
 
 Joins all datasets to create a denormalized table for unified analysis.
 
+---
 
 
 ### Sample Output
 Expected outputs for each task are printed using .show() and can be further stored or visualized.
+
+
 
 ### Additional Notes
 Dependencies: Ensure Spark and Hadoop configurations are properly set up for file paths and HDFS operations.
 
 ***Data: Replace the dataset paths with correct ones if not using the default file structure.*** 
 
-
+---
 
 
 ### Steps to Set Up Airflow with Postgres
